@@ -39,15 +39,38 @@ hr {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 30%;
+    width: 40%;
 }
 
-.list li {
-    list-style-type: none;
+ul {
+    counter-reset: list;
+}
+
+ul > li {
+    list-style: none;
+    position: relative;
     padding-right: 400px; 
 }
 
 ul > li:before {
-    content: "-";
-    text-indent: -5px;
+    counter-increment: list;
+    content: "- ";
+    position: absolute;
+    text-indent: -1.4em;
+}
+
+ol {
+    counter-reset: list;
+}
+  
+ol > li {
+    list-style: none;
+    position: relative;
+}
+
+ol > li:before {
+    counter-increment: list;
+    content: counter(list) ") ";
+    position: absolute;
+    left: -1.4em;
 }
